@@ -86,7 +86,7 @@ function CreateCompany() {
 
 export default function Company() {
   return (
-    <div className="grid place-items-center min-h-screen bg-gradient-to-b from-background-from to-background-to">
+    <div className="grid place-items-center min-h-screen bg-gradient-to-b from-background-from to-background-to overflow-x-hidden">
       <CreateCompany />
     </div>    
   )

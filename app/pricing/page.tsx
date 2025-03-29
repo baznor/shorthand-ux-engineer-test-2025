@@ -84,9 +84,9 @@ function SelectPlan() {
   )
 }
 
-export default function Invite() {
+export default function Home() {
   return (
-    <div className="grid place-items-center min-h-screen bg-gradient-to-b from-background-from to-background-to">
+    <div className="grid place-items-center min-h-screen bg-gradient-to-b from-background-from to-background-to overflow-x-hidden">
       <SelectPlan />
     </div>    
   )

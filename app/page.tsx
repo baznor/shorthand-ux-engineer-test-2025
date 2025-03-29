@@ -26,7 +26,7 @@ function CreateAccount() {
   }
   
   return (
-    <div className="flex flex-col rounded-3xl shadow-lg max-w-[1000px] w-full mx-12 mt-4 mb-12 bg-card-background">
+    <div className="flex flex-col rounded-3xl shadow-lg max-w-[1000px] w-full mx-12 mt-4 mb-12 bg-card-background overflow-x-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <form onSubmit={handleSubmit(onSubmit)} className="p-8 pt-4 flex flex-grow flex-col">
           <div className="text-3xl lg:text-4xl font-extrabold mt-6 mb-1">Create an account</div>
@@ -54,7 +54,7 @@ function CreateAccount() {
 
 export default function Home() {
   return (
-    <div className="grid place-items-center min-h-screen bg-gradient-to-b from-background-from to-background-to">
+    <div className="grid place-items-center min-h-screen bg-gradient-to-b from-background-from to-background-to overflow-x-hidden">
       <CreateAccount />
     </div>    
   )

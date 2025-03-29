@@ -57,3 +57,7 @@ Once your repository is ready, add @ckortekaas and @nathanhoad and let us know v
 - Removed the confirm password input
   - Less inputs the better signup rate
   - A nice welcome email and a good reset password system can replace that.
+- Fixed eslint errors
+  - not sure why my vscode wasn't picking them up as coding
+- Made fixes for mobile version
+  - only happened when testing on device
