@@ -1,15 +1,29 @@
 'use client'
 
 import { Icon } from "@iconify/react";
-import { useState } from 'react';
+import React from 'react'
 
-export default function TextInput({children, autofocus = false, label, icon, placeholder, type, name, id, rules, hint, value, onChange, register, errors}) {
+type Props = {
+  children?: React.ReactNode,
+  autofocus?: boolean,
+  label?: string,
+  icon: string,
+  placeholder?: string,
+  type?: string,
+  name: string,
+  id?: string,
+  rules?: any,
+  hint?: string,
+  value?: any,
+  onChange?: any,
+  register?: any,
+  errors?: any
+}
+
+export default function TextInput({children, autofocus, label, icon, placeholder, type, name, id, rules, hint, value, onChange, register, errors}: Props) {
 
   return (
     <div className="w-full">
-      {/* <label className="block text-gray-700 text-sm font-bold mb-2">
-        {label}
-      </label> */}
       <div className="flex flex-row items-center relative" id={id}>
         <input 
           type={type}
@@ -35,25 +49,6 @@ export default function TextInput({children, autofocus = false, label, icon, pla
           : <span>{hint}</span>
         }        
       </div>                        
-    </div>
-    // <div>
-    //   <div className="mt-4">        
-    //     <div className="relative  flex flex-row items-center w-full flex-grow">
-          
-    //       <input
-    //         name={name}
-    //         type={type}
-    //         placeholder=""
-    //         className="border-b border-gray-300 w-full py-1 focus:border-b-2 focus:border-blue-700 transition-colors focus:outline-none peer bg-inherit"
-    //       />          
-    //       <label
-    //         className="absolute pl-8 flex flex-row items-center -top-4 text-xs left-0 cursor-text peer-focus:text-xs focus-within:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-700 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm"
-    //       >            
-    //         {label}
-    //       </label>
-    //       <Icon className="text-2xl text-gray-500 peer-focus:text-blue-700 mr-2 order-first" icon={icon} />
-    //     </div>
-    //   </div>
-    // </div>
+    </div>    
   )
 }

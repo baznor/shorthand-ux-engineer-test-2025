@@ -1,17 +1,33 @@
 import { create } from 'zustand'
 
+type OptionType = {
+  value: string;
+  label: string;
+};
+
 type Store = {
   name: string;
   email: string;
   password: string;
-  userRole: string | null;
+  userRole: OptionType | null;
   companyName: string | null;
-  companyCategory: string | null;
-  companySize: string | null;
-  invites: [string] | [];
+  companyCategory: OptionType | null;
+  companySize: OptionType | null;
+  invites: string[];
   pricingPlan: string | null;
   mailList: boolean;
   terms: boolean;
+  setName: (name: string)  => void
+  setEmail: (email: string)  => void
+  setPassword: (password: string) => void
+  setUserRole: (userRole: OptionType) => void
+  setCompanyName: (companyName: string) => void
+  setCompanyCategory: (companyCategory: OptionType) => void
+  setCompanySize: (companySize: OptionType) => void
+  setInvites: (invites: string[]) => void
+  setPricingPlan: (pricingPlan: string) => void
+  setMailList: (mailList: boolean) => void
+  setTerms: (terms: boolean) => void
 };
 
 const useStore = create<Store>((set) => ({
@@ -29,11 +45,11 @@ const useStore = create<Store>((set) => ({
   setName: (name: string) => set(() => ({ name: name })),
   setEmail: (email: string) => set(() => ({ email: email })),
   setPassword: (password: string) => set(() => ({ password: password })),
-  setUserRole: (userRole: string) => set(() => ({ userRole: userRole })),
+  setUserRole: (userRole: OptionType) => set(() => ({ userRole: userRole })),
   setCompanyName: (companyName: string) => set(() => ({ companyName: companyName })),
-  setCompanyCategory: (companyCategory: string) => set(() => ({ companyCategory: companyCategory })),
-  setCompanySize: (companySize: string) => set(() => ({ companySize: companySize })),
-  setInvites: (invites: [string] | []) => set(() => ({ invites: invites })),
+  setCompanyCategory: (companyCategory: OptionType) => set(() => ({ companyCategory: companyCategory })),
+  setCompanySize: (companySize: OptionType) => set(() => ({ companySize: companySize })),
+  setInvites: (invites: string[]) => set(() => ({ invites: invites })),
   setPricingPlan: (pricingPlan: string) => set(() => ({ pricingPlan: pricingPlan })),
   setMailList: (mailList: boolean) => set(() => ({ mailList: mailList })),
   setTerms: (terms: boolean) => set(() => ({ terms: terms })),

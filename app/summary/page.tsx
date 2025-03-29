@@ -2,9 +2,6 @@
 
 import Image from "next/image";
 import Link from 'next/link';
-import { Icon } from "@iconify/react";
-import TextInput from "../components/textInput";
-import SelectMenu from "../components/selectMenu";
 import Checkbox from "../components/checkbox"
 import useStore from '../lib/store'
   
@@ -56,10 +53,10 @@ function Summary() {
           <div className="rounded-lg w-full border p-2 mb-1 text-secondary border-secondary border-dashed text-sm grid grid-cols-2 min-h-[28px]">
             <div className="capitalize">{pricingPlan} plan</div>
           </div>          
-          <Checkbox label="Accept terms and conditions" id="terms" name="terms" value={terms} onChange={value => setTerms(value)}>
+          <Checkbox label="Accept terms and conditions" id="terms" name="terms" value={terms} onChange={(value: boolean) => setTerms(value)}>
             Accept <Link href="/terms" target="_blank" className="text-primary underline">Terms and conditions</Link>
           </Checkbox>
-          <Checkbox label="Add to mail list" id="mailList" name="mailList" value={mailList} onChange={value => setMailList(value)} />          
+          <Checkbox label="Add to mail list" id="mailList" name="mailList" value={mailList} onChange={(value: boolean) => setMailList(value)} />          
           <div className="mt-auto mb-3"/>
           <div className="flex flex-row items-center w-full gap-2">
             <Link href="/pricing" className="flex flex-row w-50 items-center justify-center border border-primary px-3 py-3 rounded-md font-medium text-primary bg-none cursor-pointer">
@@ -78,7 +75,7 @@ function Summary() {
   )
 }
 
-export default function Invite() {
+export default function Home() {
   return (
     <div className="grid place-items-center min-h-screen bg-gradient-to-b from-background-from to-background-to">
       <Summary />

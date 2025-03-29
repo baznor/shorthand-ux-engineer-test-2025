@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Icon } from "@iconify/react";
 import TextInput from "../components/textInput";
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import { useForm } from "react-hook-form"
 import useStore from '../lib/store'
 import { useRouter } from 'next/navigation';
@@ -25,7 +25,7 @@ function Invites() {
     shouldFocusError: false,
     reValidateMode: 'onChange',
   })
-  const onSubmit = data => {
+  const onSubmit = () => {
     push('/pricing')
   }
   
@@ -50,7 +50,7 @@ function Invites() {
         <form onSubmit={handleSubmit(onSubmit)} className="p-8 pt-4 flex flex-grow flex-col items-start">
           <div className="text-3xl lg:text-4xl font-extrabold mt-6 mb-1">Invite team</div>
           <div className="text-md mb-6 -mt-2 text-secondary">Invite team members to the app</div>
-          <TextInput value={email} onChange={value => setEmail(value)} autofocus={true} label="Email address" icon="mdi:at" placeholder="Email address" type="email" name="email" id="email" >
+          <TextInput value={email} onChange={(value: SetStateAction<string>) => setEmail(value)} autofocus={true} label="Email address" icon="mdi:at" placeholder="Email address" type="email" name="email" id="email" >
             <div className={emailValid() == false ? "opacity-30 border-none px-3 py-1 rounded-md font-medium text-on-dark bg-primary pointer-events-none" : "border-none px-3 py-1 rounded-md font-medium text-on-dark bg-primary cursor-pointer"} onClick={() => {addInvite()}} >
               Add
             </div>

@@ -1,20 +1,20 @@
 'use client'
-import { useState } from 'react';
+
 import Image from "next/image";
 import Link from 'next/link';
-import { Icon } from "@iconify/react";
 import TextInput from "../components/textInput";
 import SelectMenu from "../components/selectMenu";
 import { useForm } from "react-hook-form"
 import useStore from '../lib/store'
 import { useRouter } from 'next/navigation';
 
-function CreateCompany() {
-  // const [name, setName] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [size, setSize] = useState('');
-  // const [role, setRole] = useState('');
+type OptionType = {
+  value: string;
+  label: string;
+};
 
+function CreateCompany() {
+  
   const { companyName, setCompanyName, companyCategory, setCompanyCategory, companySize, setCompanySize, userRole, setUserRole } = useStore();
   const { push } = useRouter();
 
@@ -27,7 +27,7 @@ function CreateCompany() {
     shouldFocusError: false,
     reValidateMode: 'onChange',
   })
-  const onSubmit = data => {
+  const onSubmit = () => {
     push('/invite')
   }
 
@@ -62,10 +62,10 @@ function CreateCompany() {
         <form onSubmit={handleSubmit(onSubmit)} className="p-8 pt-4 flex flex-grow flex-col items-start">
           <div className="text-3xl lg:text-4xl font-extrabold mt-6 mb-1">Company details</div>
           <div className="text-md mb-6 -mt-2 text-secondary">Tell us about your company</div>
-          <TextInput value={companyName} onChange={value => setCompanyName(value)} autofocus={true} label="Company name *" icon="mdi:account-group" placeholder="Company name *" type="organization" name="organization" id="organization" register={register} rules={ {required: '* Required'} } errors={errors}/>
-          <SelectMenu value={companyCategory} onChange={value => setCompanyCategory(value)} label="Company category" icon="mdi:at" placeholder="Company category" type="text" name="category" id="category" options={companyOptions}/>          
-          <SelectMenu value={companySize} onChange={value => setCompanySize(value)} label="Company size" icon="mdi:account-cog" placeholder="Company size" type="text" name="size" id="size" options={sizeOptions}/>          
-          <SelectMenu value={userRole} onChange={value => setUserRole(value)} label="Your role" icon="mdi:account-cog" placeholder="Your role" type="text" name="role" id="role" options={roleOptions}/>          
+          <TextInput value={companyName} onChange={(value: string) => setCompanyName(value)} autofocus={true} label="Company name *" icon="mdi:account-group" placeholder="Company name *" type="organization" name="organization" id="organization" register={register} rules={ {required: '* Required'} } errors={errors}/>
+          <SelectMenu value={companyCategory} onChange={(value: OptionType) => setCompanyCategory(value)} label="Company category" icon="mdi:at" placeholder="Company category" type="text" name="category" id="category" options={companyOptions}/>          
+          <SelectMenu value={companySize} onChange={(value: OptionType) => setCompanySize(value)} label="Company size" icon="mdi:account-cog" placeholder="Company size" type="text" name="size" id="size" options={sizeOptions}/>          
+          <SelectMenu value={userRole} onChange={(value: OptionType) => setUserRole(value)} label="Your role" icon="mdi:account-cog" placeholder="Your role" type="text" name="role" id="role" options={roleOptions}/>          
           <div className="mt-auto mb-3"/>
           <div className="flex flex-row items-center w-full gap-2">
             <Link href="/" className="flex flex-row w-50 items-center justify-center border border-primary px-3 py-3 rounded-md font-medium text-primary bg-none cursor-pointer">

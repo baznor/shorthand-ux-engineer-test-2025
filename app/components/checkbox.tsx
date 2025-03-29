@@ -1,6 +1,17 @@
 'use client'
 
-export default function SelectMenu({label, children, name, id, value, onChange}) {
+import React from 'react'
+
+type Props = {
+  label?: string,
+  children?: React.ReactNode,
+  name: string,
+  id?: string,
+  value?: any,
+  onChange?: any,  
+}
+
+export default function SelectMenu({label, children, name, id, value, onChange}: Props) {
   
   return (
     <div className="flex flex-row items-center gap-2">

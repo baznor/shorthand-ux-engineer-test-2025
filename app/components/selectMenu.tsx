@@ -1,19 +1,29 @@
 'use client'
 
-import { useState } from 'react';
 import Select from 'react-select';
 import { Icon } from "@iconify/react";
 
-// const options = [
-//   { value: 'chocolate', label: 'Chocolate' },
-//   { value: 'strawberry', label: 'Strawberry' },
-//   { value: 'vanilla', label: 'Vanilla' },
-// ];
+type OptionType = {
+  value: string;
+  label: string;
+};
 
-export default function SelectMenu({autofocus = false, label, icon, placeholder, type, name, id, rules, hint, error, options, value, onChange}) {
-  // const [selectedOption, setSelectedOption] = useState(null);
-  // const [isFocused, setIsFocused] = useState(false);
-  // const isFocused = false
+type Props = {
+  autofocus?: boolean,
+  label?: string,
+  icon: string,
+  placeholder?: string,
+  type?: string,
+  name: string,
+  id?: string,
+  rules?: any,
+  hint?: string,
+  value?: any,
+  onChange?: any,
+  options: OptionType[]
+}
+
+export default function SelectMenu({autofocus, label, icon, placeholder, type, name, id, rules, hint, options, value, onChange}: Props) {
 
   return (
     <div className="w-full">

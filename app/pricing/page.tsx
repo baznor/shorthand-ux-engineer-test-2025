@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import Link from 'next/link';
-import { Icon } from "@iconify/react";
-import TextInput from "../components/textInput";
-import SelectMenu from "../components/selectMenu";
 import { useForm } from "react-hook-form"
 import useStore from '../lib/store'
 import { useRouter } from 'next/navigation';
+import { ChangeEvent } from "react";
 
 function SelectPlan() {
 
@@ -23,11 +21,11 @@ function SelectPlan() {
     shouldFocusError: false,
     reValidateMode: 'onChange',
   })
-  const onSubmit = data => {
+  const onSubmit = () => {
     push('/summary')
   }
 
-  const onChange = (event) => {
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked == true){
       setPricingPlan(event.target.id)
     }
