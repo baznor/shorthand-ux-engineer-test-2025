@@ -20,10 +20,10 @@ type Store = {
   setName: (name: string)  => void
   setEmail: (email: string)  => void
   setPassword: (password: string) => void
-  setUserRole: (userRole: OptionType) => void
+  setUserRole: (userRole: OptionType | null) => void
   setCompanyName: (companyName: string) => void
-  setCompanyCategory: (companyCategory: OptionType) => void
-  setCompanySize: (companySize: OptionType) => void
+  setCompanyCategory: (companyCategory: OptionType | null) => void
+  setCompanySize: (companySize: OptionType | null) => void
   setInvites: (invites: string[]) => void
   setPricingPlan: (pricingPlan: string) => void
   setMailList: (mailList: boolean) => void
@@ -45,10 +45,10 @@ const useStore = create<Store>((set) => ({
   setName: (name: string) => set(() => ({ name: name })),
   setEmail: (email: string) => set(() => ({ email: email })),
   setPassword: (password: string) => set(() => ({ password: password })),
-  setUserRole: (userRole: OptionType) => set(() => ({ userRole: userRole })),
+  setUserRole: (userRole: OptionType | null) => set(() => ({ userRole: userRole })),
   setCompanyName: (companyName: string) => set(() => ({ companyName: companyName })),
-  setCompanyCategory: (companyCategory: OptionType) => set(() => ({ companyCategory: companyCategory })),
-  setCompanySize: (companySize: OptionType) => set(() => ({ companySize: companySize })),
+  setCompanyCategory: (companyCategory: OptionType | null) => set(() => ({ companyCategory: companyCategory })),
+  setCompanySize: (companySize: OptionType | null) => set(() => ({ companySize: companySize })),
   setInvites: (invites: string[]) => set(() => ({ invites: invites })),
   setPricingPlan: (pricingPlan: string) => set(() => ({ pricingPlan: pricingPlan })),
   setMailList: (mailList: boolean) => set(() => ({ mailList: mailList })),

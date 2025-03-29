@@ -13,8 +13,6 @@ function SelectPlan() {
   const { push } = useRouter();
 
   const {
-    register,
-    formState: { errors },
     handleSubmit,
   } = useForm({
     criteriaMode: 'all',

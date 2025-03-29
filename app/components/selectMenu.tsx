@@ -8,6 +8,8 @@ type OptionType = {
   label: string;
 };
 
+type CallbackFunction = (value: OptionType | null) => void;
+
 type Props = {
   autofocus?: boolean,
   label?: string,
@@ -16,14 +18,13 @@ type Props = {
   type?: string,
   name: string,
   id?: string,
-  rules?: any,
   hint?: string,
-  value?: any,
-  onChange?: any,
+  value?: OptionType | null,
+  onChange: CallbackFunction,
   options: OptionType[]
 }
 
-export default function SelectMenu({autofocus, label, icon, placeholder, type, name, id, rules, hint, options, value, onChange}: Props) {
+export default function SelectMenu({label, icon, placeholder, name, id, hint, options, value, onChange}: Props) {
 
   return (
     <div className="w-full">
@@ -33,6 +34,7 @@ export default function SelectMenu({autofocus, label, icon, placeholder, type, n
         onChange={event => onChange(event)}
         options={options}
         id={id}
+        name={name}
         placeholder={placeholder}
         className="appearance-none border-none w-full text-foreground leading-tight transition-all duration-[200ms]"
         styles={{
@@ -51,7 +53,7 @@ export default function SelectMenu({autofocus, label, icon, placeholder, type, n
               borderStyle: 'solid',
             }
           }),
-          option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+          option: (styles, { isFocused }) => {
             return {
               ...styles,
               color: isFocused ? 'var(--on-dark)' : 'var(--input-focus)',
@@ -59,7 +61,7 @@ export default function SelectMenu({autofocus, label, icon, placeholder, type, n
             }
           },
           menu: (styles) => ({ ...styles, backgroundColor: 'var(--card-surface)' }),
-          input: (styles, state) => ({ ...styles, color: 'var(--input-focus)' }),
+          input: (styles) => ({ ...styles, color: 'var(--input-focus)' }),
           placeholder: (styles) => ({ ...styles, color: 'var(--input-placeholder)' }),
           singleValue: (styles) => ({ ...styles, color: 'var(--input-focus)' }),          
         }}

@@ -2,13 +2,15 @@
 
 import React from 'react'
 
+type CallbackFunction = (checked: boolean) => void;
+
 type Props = {
   label?: string,
   children?: React.ReactNode,
   name: string,
   id?: string,
-  value?: any,
-  onChange?: any,  
+  value?: boolean,
+  onChange: CallbackFunction,  
 }
 
 export default function SelectMenu({label, children, name, id, value, onChange}: Props) {

@@ -63,9 +63,9 @@ function CreateCompany() {
           <div className="text-3xl lg:text-4xl font-extrabold mt-6 mb-1">Company details</div>
           <div className="text-md mb-6 -mt-2 text-secondary">Tell us about your company</div>
           <TextInput value={companyName} onChange={(value: string) => setCompanyName(value)} autofocus={true} label="Company name *" icon="mdi:account-group" placeholder="Company name *" type="organization" name="organization" id="organization" register={register} rules={ {required: '* Required'} } errors={errors}/>
-          <SelectMenu value={companyCategory} onChange={(value: OptionType) => setCompanyCategory(value)} label="Company category" icon="mdi:at" placeholder="Company category" type="text" name="category" id="category" options={companyOptions}/>          
-          <SelectMenu value={companySize} onChange={(value: OptionType) => setCompanySize(value)} label="Company size" icon="mdi:account-cog" placeholder="Company size" type="text" name="size" id="size" options={sizeOptions}/>          
-          <SelectMenu value={userRole} onChange={(value: OptionType) => setUserRole(value)} label="Your role" icon="mdi:account-cog" placeholder="Your role" type="text" name="role" id="role" options={roleOptions}/>          
+          <SelectMenu value={companyCategory} onChange={(value: OptionType | null) => setCompanyCategory(value)} label="Company category" icon="mdi:at" placeholder="Company category" type="text" name="category" id="category" options={companyOptions}/>          
+          <SelectMenu value={companySize} onChange={(value: OptionType | null) => setCompanySize(value)} label="Company size" icon="mdi:account-cog" placeholder="Company size" type="text" name="size" id="size" options={sizeOptions}/>          
+          <SelectMenu value={userRole} onChange={(value: OptionType | null) => setUserRole(value)} label="Your role" icon="mdi:account-cog" placeholder="Your role" type="text" name="role" id="role" options={roleOptions}/>          
           <div className="mt-auto mb-3"/>
           <div className="flex flex-row items-center w-full gap-2">
             <Link href="/" className="flex flex-row w-50 items-center justify-center border border-primary px-3 py-3 rounded-md font-medium text-primary bg-none cursor-pointer">

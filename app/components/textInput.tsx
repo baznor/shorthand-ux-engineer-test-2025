@@ -1,7 +1,10 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 'use client'
 
 import { Icon } from "@iconify/react";
 import React from 'react'
+
+type CallbackFunction = (value: string) => void;
 
 type Props = {
   children?: React.ReactNode,
@@ -14,13 +17,13 @@ type Props = {
   id?: string,
   rules?: any,
   hint?: string,
-  value?: any,
-  onChange?: any,
+  value?: string | null,
+  onChange: CallbackFunction,
   register?: any,
   errors?: any
 }
 
-export default function TextInput({children, autofocus, label, icon, placeholder, type, name, id, rules, hint, value, onChange, register, errors}: Props) {
+export default function TextInput({children, label, icon, type, name, id, rules, hint, value, onChange, register, errors}: Props) {
 
   return (
     <div className="w-full">
